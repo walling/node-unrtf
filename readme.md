@@ -5,7 +5,13 @@ Converts RTF documents to HTML by calling the `unrtf` command line.
 
 ## Install
 
-You need to install `unrtf` command line utility first, then:
+You need to install `unrtf` command line utility first:
+
+- Mac: `brew install unrtf`
+- Ubuntu: `aptitude install unrtf`
+- Windows: [find the Windows installer here](http://gnuwin32.sourceforge.net/packages/unrtf.htm)
+
+Then install this module:
 
 ```
 npm install unrtf
