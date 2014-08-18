@@ -1,0 +1,25 @@
+{
+  "name": "unrtf",
+  "version": "0.1.0",
+  "description": "Converts RTF documents to HTML",
+  "author": "Bjarke Walling <bwp@bwp.dk>",
+  "license": "MIT",
+  "keywords": [
+    "rtf",
+    "html",
+    "rtf2html",
+    "document",
+    "documents",
+    "conversion"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/walling/node-unrtf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/walling/node-unrtf/issues"
+  },
+  "dependencies": {
+    "he": "^0.4.1"
+  }
+}
