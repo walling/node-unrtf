@@ -1,17 +1,11 @@
 # unrtf
 
-Converts RTF documents to HTML by calling the `unrtf` command line.
+Converts RTF documents to HTML. It features two engines that performs a bit differently, so you might try both on your RTF data.
 
 
 ## Install
 
-You need to install `unrtf` command line utility first:
-
-- Mac: `brew install unrtf`
-- Ubuntu: `aptitude install unrtf`
-- Windows: [find the Windows installer here](http://gnuwin32.sourceforge.net/packages/unrtf.htm)
-
-Then install this module:
+By default the only prerequisite is to install Python. Then install this module:
 
 ```
 npm install unrtf
@@ -25,7 +19,6 @@ var unrtf = require('unrtf');
 
 unrtf(
   '{\\rtf1\\ansi\\ansicpg1252\\cocoartf1265\\cocoasubrtf210\n{\\fonttbl\\f0\\fswiss\\fcharset0 Helvetica;}\n{\\colortbl;\\red255\\green255\\blue255;}\n\\paperw11900\\paperh16840\\margl1440\\margr1440\\vieww10800\\viewh8400\\viewkind0\n\\pard\\tx566\\tx1133\\tx1700\\tx2267\\tx2834\\tx3401\\tx3968\\tx4535\\tx5102\\tx5669\\tx6236\\tx6803\\pardirnatural\n\n\\f0\\fs24 \\cf0 Hello, World!\\\n\\\nThis is RTF. :-)}',
-  { clean: true },
   function(error, result) {
     console.log(result.html);
   }
@@ -47,7 +40,7 @@ Type: object (optional)
 
 Two options are supported:
 
-1. **engine**, choose the RTF converter engine (only "unrtf" for now is supported, which is default)
+1. **engine**, choose the RTF converter engine, either "pyth" (default) or "unrtf"
 2. **unclean**, if set to true it will not try to clean up the resulting HTML code, only applies to `unrtf` engine (default false)
 3. **timeout**, set the timeout of calling the `unrtf` command in milliseconds (default 2000)
 
@@ -55,6 +48,28 @@ Two options are supported:
 Type: function (required)
 
 Invoked with the result or error, if any.
+
+
+## Engines
+
+You can choose between two engines:
+
+ 1. "pyth" (default), depends on Python being installed on your system
+ 2. "unrtf", depends on a command line utility
+
+If you want to use the unrtf engine, you need to first install the utility:
+
+ -  Mac: `brew install unrtf`
+ -  Ubuntu: `aptitude install unrtf`
+ -  Windows: [find the Windows installer here](http://gnuwin32.sourceforge.net/packages/unrtf.htm)
+
+You can set the default engine:
+
+```javascript
+var unrtf = require('unrtf');
+
+unrtf.defaultEngine = 'unrtf';
+```
 
 
 ## License

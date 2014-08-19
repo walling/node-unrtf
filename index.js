@@ -1,9 +1,10 @@
 
 var unrtf = require('./unrtf');
+var pyth = require('./pyth');
 
 function noop() {}
 
-function unrtf(rtf, options, callback) {
+function rtf2html(rtf, options, callback) {
 	if (!callback) {
 		callback = options;
 		options = null;
@@ -13,15 +14,17 @@ function unrtf(rtf, options, callback) {
 	options = options || {};
 	callback = callback || noop;
 
-	var engine = options.engine || unrtf.defaultEngine;
+	var engine = options.engine || rtf2html.defaultEngine;
 
-	if (engine === 'unrtf') {
+	if (engine === 'pyth') {
+		pyth(rtf, options, callback);
+	} else if (engine === 'unrtf') {
 		unrtf(rtf, options, callback);
 	} else {
-		callback(new Error('unrtf: Unknown engine, please specify "unrtf".'));
+		callback(new Error('unrtf: Unknown engine, please specify "pyth" or "unrtf".'));
 	}
 }
 
-unrtf.defaultEngine = 'unrtf';
+rtf2html.defaultEngine = 'pyth';
 
-module.exports = unrtf;
+module.exports = rtf2html;

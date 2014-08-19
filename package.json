@@ -20,6 +20,7 @@
     "url": "https://github.com/walling/node-unrtf/issues"
   },
   "dependencies": {
-    "he": "^0.4.1"
+    "he": "^0.4.1",
+    "split": "^0.3.0"
   }
 }
