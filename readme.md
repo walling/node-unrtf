@@ -47,8 +47,9 @@ Type: object (optional)
 
 Two options are supported:
 
-1. **clean**, if set to true it will clean up the resulting HTML code (default false)
-2. **timeout**, set the timeout of calling the `unrtf` command in milliseconds (default 2000)
+1. **engine**, choose the RTF converter engine (only "unrtf" for now is supported, which is default)
+2. **unclean**, if set to true it will not try to clean up the resulting HTML code, only applies to `unrtf` engine (default false)
+3. **timeout**, set the timeout of calling the `unrtf` command in milliseconds (default 2000)
 
 ### callback
 Type: function (required)
