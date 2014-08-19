@@ -140,6 +140,13 @@ function pyth(rtf, options, callback) {
 	callback = callback || noop;
 	if (!rtf) return callback(null, { html: '' });
 
+	// Encode Unicode characters as RTF commands, fixes encoding issue in Pyth library.
+	rtf = ('' + [rtf]).replace(/[\u0080-\uFFFF]/g, function(ch) {
+		var code = ch.charCodeAt(0);
+		if (code > 32767) code -= 65536;
+		return '\\uc1\\u' + code + '?';
+	});
+
 	processor.addTask(rtf, function(error, result) {
 		if (error) {
 			callback(error);
