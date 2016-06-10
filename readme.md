@@ -38,7 +38,7 @@ The input RTF document you want to convert.
 ### options
 Type: object (optional)
 
-Two options are supported:
+Three options are supported:
 
 1. **engine**, choose the RTF converter engine, either "pyth" (default) or "unrtf"
 2. **unclean**, if set to true it will not try to clean up the resulting HTML code, only applies to `unrtf` engine (default false)
